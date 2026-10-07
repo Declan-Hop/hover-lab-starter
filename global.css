@@ -7,6 +7,8 @@
   --contrast-color: #E8B873;
   --triadic-color: #A62A61;
   --extra-color: #F5F2EA;
+  --declan-color:#A20F1E;
+  --tr-color: #12BC34;
 
   --radius: 1rem;
   --space-small: 0.5rem;
@@ -74,9 +76,27 @@ body {
 }
 
 /* YOUR CODE: Lab 1 states (:hover, :focus-visible, :active) */
+.state-button, .state-link{
+  transition: color var 0.3s ease, green 0.3s ease, transform 0.15s ease;
+}
 
+.state-button:hover, .state-button:focus-visible{
+  color : var (--extra-color) ;
+  background-color: var(--declan-color)
+}
 
+.state-link:hover, .state-link:focus-visible{
+  color: var(--triadic-color);
+}
 
+.state-button:focus-visible, .state-link:focus-visible{
+  outline: 3px solid var(--triadic-color);
+  outline-offset: 4px;
+}
+
+.state-button:active{
+  transform: scale(0.92);
+}
 
 /* ---------- Lab 2: The Timing Race ---------- */
 .race {
@@ -104,7 +124,29 @@ body {
 
 /* YOUR CODE: Lab 2 timing functions (one per racer) */
 
+.racer-linear{
+  transition-timing-function: linear;
+}
 
+.racer-ease{
+  transition-timing-function: ease;
+}
+
+.racer-ease-in{
+  transition-timing-function: ease-in;
+}
+
+.racer-ease-out{
+  transition-timing-function: ease-out;
+}
+
+.racer-ease-in-out{
+  transition-timing-function: ease-in-out;
+}
+
+.racer-mine{
+  transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
 
 
 /* ---------- Lab 3: Transform Tiles ---------- */
@@ -128,8 +170,26 @@ body {
 
 /* YOUR CODE: Lab 3 transforms (lift, grow, spin, tilt) */
 
+.tile{
+  transition:transform 0.4s ease;
+}
 
+.tile-lift:hover, .tile-lift:focus-visible{
+  transform: translate(0%, -100%);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+}
 
+.tile-grow:hover, .tile-grow:focus-visible{
+  transform: scale(1.1);
+}
+
+.tile-spin:hover, .tile-spin:focus-visible{
+  transform: rotate(99turn);
+}
+
+.tile-tilt:hover, .tile-tilt:focus-visible{
+  transform: rotate(0.125turn);
+}
 
 /* ---------- Lab 4: My Hover Gallery ---------- */
 .gallery {
@@ -150,8 +210,46 @@ body {
 }
 
 /* YOUR CODE: Lab 4, six effects */
+.effect-card{
+  transition:transform 0.4s ease;
+}
 
+.effect-1:hover, .effect-1:focus-visible{
+  border: solid var(--contrast-color);
+  border-radius: 50%;
+  transform: scale(1.05)
+}
 
+.effect-2:hover, .effect-2:focus-visible{
+  letter-spacing: 0.3em;
+  box-shadow: 5px 5px 10px 2px var(--triadic-color);
+}
+
+.effect-3:hover, .effect-3:focus-visible{
+color: var(--contrast-color);
+background-color: var(--primary-color);
+border-radius: 30px;
+}
+
+.effect-4:hover, .effect-4:focus-visible{
+  transform: translate(-10px);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.effect-5:hover, .effect-5:focus-visible{
+color: var(--extra-color);
+background-color: var(--triadic-color);
+box-shadow: 0 0 20px var(--triadic-color);
+border-radius: 30px;
+}
+
+.effect-6:hover, .effect-6:focus-visible{
+color: var(--extra-color);
+background-color: var(--secondary-color);
+border-color: var(--contrast-color);
+border-width: 10px;
+border-radius: 30px;
+}
 
 /* ---------- PC: 1024px and up ---------- */
 @media (min-width: 1024px) {
